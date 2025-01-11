@@ -8,6 +8,7 @@ export enum SocketEvent {
     USER_ATTACK = 'USER_ATTACK',
     USER_END_TURN = 'USER_END_TURN',
     USER_JOIN_MAP = 'USER_JOIN_MAP',
+    USER_LEAVE_MAP = 'USER_LEAVE_MAP',
  }
 
 export type Socket_Message_Event = {
@@ -24,9 +25,9 @@ const ws = new WebSocket('ws://localhost:8080');
 
 ws.on('open', () => {
     const message: Socket_Message_Event = {
-        type: SocketEvent.USER_JOIN_MAP,
+        type: SocketEvent.USER_MOVE,
         payload: {
-            message: 'Hello',
+            message: 'UP',
             playerID: '1'
         }
     };
